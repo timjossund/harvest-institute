@@ -26,8 +26,10 @@ Homestead.json
 /storage/pail
 .env.backup
 .env.production
+.env.example
 .phpactor.json
 auth.json
+.DS_Store
 
 .vite
 .idea
