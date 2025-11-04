@@ -32,4 +32,12 @@ class LectureController extends Controller
 
         return redirect()->route('lectures.index');
     }
+
+    public function show(Course $course, Lecture $lecture)
+    {
+        return view('lecture.single', [
+            'lecture' => $lecture, 
+            'course' => $course
+        ]);
+    }
 }

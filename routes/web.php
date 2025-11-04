@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/courses/{course}/lectures', [LectureController::class, 'index'])->name('lectures.index');
     Route::get('/courses/{course}/lectures/create', [LectureController::class, 'create'])->name('lectures.create');
     Route::post('/courses/{course}/lectures', [LectureController::class, 'store'])->name('lectures.store');
-    Route::get('/courses/{course}/lectures/{lecture}', [LectureController::class, 'show'])->name('lectures.show');
+    Route::get('/courses/{course}/{lecture}', [LectureController::class, 'show'])->name('lectures.show');
     Route::get('/courses/{course}/lectures/{lecture}/edit', [LectureController::class, 'edit'])->name('lectures.edit');
     Route::patch('/courses/{course}/lectures/{lecture}', [LectureController::class, 'update'])->name('lectures.update');
     Route::delete('/courses/{course}/lectures/{lecture}', [LectureController::class, 'destroy'])->name('lectures.destroy');
