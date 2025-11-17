@@ -7,13 +7,17 @@
                 </div>
                 <div class="p-6 text-gray-900">
                     <h2 class="text-2xl font-bold">Lectures</h2>
-                    @foreach ($course->lectures as $lecture)
-                    <div class="mb-4 pb-4 mt-4 flex justify-between items-center shadow-md p-4 rounded-md bg-gray-50">
-                        <p class="text-lg font-bold">{{ $lecture->name }}</p>
-                        <p class="text-gray-600">{{ $lecture->description }}</p>
-                        <a href="{{ route('lectures.show', [$course, $lecture]) }}" class="text-blue-500">View Lecture</a> 
-                    </div>
-                    @endforeach
+                    @if ($course->lectures->count() > 0)
+                        @foreach ($course->lectures as $lecture)
+                        <div class="mb-4 pb-4 mt-4 flex justify-between items-center shadow-md p-4 rounded-md bg-gray-50">
+                            <p class="text-lg font-bold">{{ $lecture->name }}</p>
+                            <p class="text-gray-600">{{ $lecture->description }}</p>
+                            <a href="{{ route('lectures.show', [$course, $lecture]) }}" class="text-blue-500">View Lecture</a> 
+                        </div>
+                        @endforeach
+                    @else
+                    <p class="text-gray-600">No lectures found</p>
+                    @endif
                 </div>
             </div>
         </div>

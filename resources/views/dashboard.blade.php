@@ -4,13 +4,17 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <h2 class="text-2xl font-bold">Your learning journey starts here!</h2>
+                    @if ($courses->count() > 0)
                     @foreach ($courses as $course)
-                    <div class="mb-4 border-b border-gray-200 pb-4 mt-4 flex justify-between items-center shadow-sm p-4 rounded-md">
+                    <div class="mb-4 border-b border-gray-200 pb-4 mt-4 flex flex-col md:flex-row justify-between items-center shadow-sm p-4 rounded-md">
                         <p class="text-lg font-bold">{{ $course->name }}</p>
                         <p class="text-gray-600">{{ $course->description }}</p>
                         <a href="{{ route('courses.show', $course) }}" class="text-blue-500">View Course</a>
                     </div>
                     @endforeach
+                    @else
+                    <p class="text-gray-600">No courses found</p>
+                    @endif
                 </div>
             </div>
         </div>
