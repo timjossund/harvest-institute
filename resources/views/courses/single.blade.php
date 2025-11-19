@@ -9,9 +9,8 @@
                     <h2 class="text-2xl font-bold">Lectures</h2>
                     @if ($course->lectures->count() > 0)
                         @foreach ($course->lectures as $lecture)
-                        <div class="mb-4 pb-4 mt-4 flex justify-between items-center shadow-md p-4 rounded-md bg-gray-50">
+                        <div class="mb-4 border-b border-gray-200 pb-4 mt-4 flex justify-between items-center shadow-sm p-4 rounded-md">
                             <p class="text-lg font-bold">{{ $lecture->name }}</p>
-                            <p class="text-gray-600">{{ $lecture->description }}</p>
                             <a href="{{ route('lectures.show', [$course, $lecture]) }}" class="text-blue-500">View Lecture</a> 
                         </div>
                         @endforeach
