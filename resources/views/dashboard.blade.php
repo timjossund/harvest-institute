@@ -16,6 +16,8 @@
                     <p class="text-gray-600">No courses found</p>
                     @endif
                 </div>
+
+                <a href="{{ route('courses.create') }}" class="ml-4 text-blue-500">Create New Course</a>
             </div>
         </div>
     </div>
