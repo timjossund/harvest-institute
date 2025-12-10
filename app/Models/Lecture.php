@@ -23,4 +23,9 @@ class Lecture extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    public function tests()
+    {
+        return $this->hasMany(Test::class);
+    }
 }

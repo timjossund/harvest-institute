@@ -9,9 +9,10 @@
                     </div>
                     @if($courses && $courses->isNotEmpty())
                         @foreach($courses as $course)
-                        <div class="mb-4 p-4 border-b border-gray-200 hover:bg-gray-50 cursor-pointer" onclick="window.location='{{ route('courses.show', $course->id) }}'">
+                        <div class="mb-4 p-4 border-b border-gray-200 hover:bg-gray-50 cursor-pointer flex flex-col md:flex-row justify-between items-center rounded-md">
                             <h2 class="text-xl font-semibold">{{ $course->name }}</h2>
                             <p>{{ $course->description }}</p>
+                            <a href="{{ route('courses.show', $course->id) }}" class="text-blue-500">View Course</a>
                         </div>
                         @endforeach
                     @else

@@ -43,7 +43,7 @@ class LectureController extends Controller
     public function show(Course $course, Lecture $lecture)
     {
         return view('lectures.single', [
-            'lecture' => $lecture, 
+            'lecture' => $lecture,
             'course' => $course
         ]);
     }
