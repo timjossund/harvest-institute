@@ -73,6 +73,6 @@ class CourseController extends Controller
 
         $course->update($request->all());
 
-        return redirect()->route('courses.index');
+        return redirect()->route('courses.show', $course);
     }
 }

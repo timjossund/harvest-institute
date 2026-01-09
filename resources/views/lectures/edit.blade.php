@@ -5,12 +5,12 @@
                 <div class="p-6 text-gray-900">
                     <h1 class="text-2xl font-bold">Edit Lecture: {{ $lecture->name }}</h1>
                     <!-- Form for editing lecture -->
-                    <form action="{{ route('lectures.update', $lecture->id) }}" method="POST">
+                    <form action="{{ route('lectures.update', [$course, $lecture]) }}" method="POST">
                         @csrf
-                        @method('PUT')
+                        @method('PATCH')
                         <div>
-                            <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-                            <input type="text" name="title" id="title" value="{{ old('title', $lecture->name) }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                            <input type="text" name="name" id="name" value="{{ old('name', $lecture->name) }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
                         </div>
                         <div>
                             <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
@@ -20,7 +20,7 @@
                             <label for="video_url" class="block text-sm font-medium text-gray-700">Video URL</label>
                             <input type="text" name="video_url" id="video_url" value="{{ old('video_url', $lecture->video_url) }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
                         </div>
-                        <button type="submit" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded">Update Lecture</button>
+                        <button type="submit" class="mt-4 px-4 py-2 bg-green-500 hover:bg-green-700 text-white rounded">Update Lecture</button>
                     </form>
                 </div>
             </div>

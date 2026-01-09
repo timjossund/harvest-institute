@@ -47,4 +47,36 @@ class LectureController extends Controller
             'course' => $course
         ]);
     }
+
+    public function edit(Course $course, Lecture $lecture) {
+        return view('lectures.edit', [
+            'lecture' => $lecture, 
+            'course' => $course
+        ]);
+    }
+
+    public function update(Course $course, Lecture $lecture, Request $request) {
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'video_url' => 'required',
+        ]);
+
+        $lecture = Lecture::findOrFail($lecture->id);
+
+        $lecture->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'video_url' => $request->video_url,
+            'course_id' => $course->id,
+            'slug' => Str::slug($request->name),
+        ]);
+
+        return redirect()->route('courses.show', $course);
+    }
+
+    public function destroy(Course $course, Lecture $lecture) {
+        $lecture->delete();
+        return redirect()->route('courses.show', $course);
+    }
 }
