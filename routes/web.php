@@ -41,6 +41,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/courses/{course}/lectures/{lecture}/test/{test}/edit', [TestController::class, 'edit'])->name('tests.edit');
     Route::patch('/courses/{course}/lectures/{lecture}/test/{test}', [TestController::class, 'update'])->name('tests.update');
     Route::delete('/courses/{course}/lectures/{lecture}/test/{test}', [TestController::class, 'destroy'])->name('tests.destroy');
+    // question routes
+    Route::get('/courses/{course}/lectures/{lecture}/test/{test}/questions', [QuestionController::class, 'index'])->name('questions.index');
+    Route::get('/courses/{course}/lectures/{lecture}/test/{test}/questions/create', [QuestionController::class, 'create'])->name('questions.create');
+    Route::post('/courses/{course}/lectures/{lecture}/test/{test}/questions', [QuestionController::class, 'store'])->name('questions.store');
+    Route::get('/courses/{course}/lectures/{lecture}/test/{test}/questions/{question}', [QuestionController::class, 'show'])->name('questions.show');
+    Route::get('/courses/{course}/lectures/{lecture}/test/{test}/questions/{question}/edit', [QuestionController::class, 'edit'])->name('questions.edit');
+    Route::patch('/courses/{course}/lectures/{lecture}/test/{test}/questions/{question}', [QuestionController::class, 'update'])->name('questions.update');
+    Route::delete('/courses/{course}/lectures/{lecture}/test/{test}/questions/{question}', [QuestionController::class, 'destroy'])->name('questions.destroy');
 });
 
 require __DIR__.'/auth.php';
