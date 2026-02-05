@@ -11,7 +11,7 @@
                         <label for="name">Name</label>
                         <input type="text" name="name" id="name" value="{{ $course->name }}">
                         <label for="description">Description</label>
-                        <textarea name="description" id="description">{{ $course->description }}</textarea>
+                        <textarea name="description" id="description" rows="10">{{ $course->description }}</textarea>
                         <button type="submit" class="max-w-[200px] bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Update</button>
                     </form>
                 </div>
