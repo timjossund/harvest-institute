@@ -4,6 +4,8 @@ use App\Http\Controllers\LectureController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\TestTrackerController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -34,10 +36,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/courses/{course}/lectures/{lecture}', [LectureController::class, 'update'])->name('lectures.update');
     Route::delete('/courses/{course}/lectures/{lecture}', [LectureController::class, 'destroy'])->name('lectures.destroy');
     // test routes
-    Route::get('/courses/{course}/lectures/{lecture}/test', [TestController::class, 'index'])->name('tests.index');
     Route::get('/courses/{course}/lectures/{lecture}/test/create', [TestController::class, 'create'])->name('tests.create');
     Route::post('/courses/{course}/lectures/{lecture}/test', [TestController::class, 'store'])->name('tests.store');
-    Route::get('/courses/{course}/lectures/{lecture}/test/{test}', [TestController::class, 'show'])->name('tests.show');
+    Route::get('/courses/{course}/lectures/{lecture}/test/{test}', [TestController::class, 'index'])->name('tests.index');
     Route::get('/courses/{course}/lectures/{lecture}/test/{test}/edit', [TestController::class, 'edit'])->name('tests.edit');
     Route::patch('/courses/{course}/lectures/{lecture}/test/{test}', [TestController::class, 'update'])->name('tests.update');
     Route::delete('/courses/{course}/lectures/{lecture}/test/{test}', [TestController::class, 'destroy'])->name('tests.destroy');
@@ -45,7 +46,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/courses/{course}/lectures/{lecture}/test/{test}/questions', [QuestionController::class, 'index'])->name('questions.index');
     Route::get('/courses/{course}/lectures/{lecture}/test/{test}/questions/create', [QuestionController::class, 'create'])->name('questions.create');
     Route::post('/courses/{course}/lectures/{lecture}/test/{test}/questions', [QuestionController::class, 'store'])->name('questions.store');
-    Route::get('/courses/{course}/lectures/{lecture}/test/{test}/questions/{question}', [QuestionController::class, 'show'])->name('questions.show');
     Route::get('/courses/{course}/lectures/{lecture}/test/{test}/questions/{question}/edit', [QuestionController::class, 'edit'])->name('questions.edit');
     Route::patch('/courses/{course}/lectures/{lecture}/test/{test}/questions/{question}', [QuestionController::class, 'update'])->name('questions.update');
     Route::delete('/courses/{course}/lectures/{lecture}/test/{test}/questions/{question}', [QuestionController::class, 'destroy'])->name('questions.destroy');
