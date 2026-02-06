@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class TestTracker extends Model
 {
+    protected $table = 'tests_taken';
+
     protected $fillable = [
         'test_id',
         'user_id',
-        'score_id',
+        'test_score_id',
         'completed',
     ];
 
