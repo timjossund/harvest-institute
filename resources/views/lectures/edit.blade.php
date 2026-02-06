@@ -14,7 +14,7 @@
                         </div>
                         <div>
                             <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-                            <textarea name="description" id="description" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">{{ old('description', $lecture->description) }}</textarea>
+                            <textarea name="description" id="description" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" rows="10">{{ old('description', $lecture->description) }}</textarea>
                         </div>
                         <div>
                             <label for="video_url" class="block text-sm font-medium text-gray-700">Video URL</label>

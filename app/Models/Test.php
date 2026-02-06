@@ -3,12 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Test extends Model
 {
     protected $fillable = [
         'name',
         'description',
+        'lecture_id',
+        'user_id',
     ];
 
     public function lecture()

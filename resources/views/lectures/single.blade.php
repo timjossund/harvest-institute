@@ -11,7 +11,13 @@
                     <iframe src="{{ $lecture->video_url }}" width="560" height="315" frameborder="0" allowfullscreen></iframe>
                 </div>
                 @endif
+                <div class="flex justify-between items-center p-6 text-gray-900">
+                    @if($lecture->test()->exists())   
+                        <a href="{{ route('tests.index', [$course, $lecture, $lecture->test()->first()]) }}" class="ml-4 text-white bg-green-500 hover:bg-green-700 font-bold py-2 px-4 rounded my-4">Take Test</a>
+                    @endif
+                </div>
                 <div class="p-6 text-gray-900">
+                    <a href="{{ route('tests.create', [$course, $lecture]) }}" class="ml-4 text-white bg-green-500 hover:bg-green-700 font-bold py-2 px-4 rounded my-4">Create Test</a>
                     <a href="{{ route('lectures.edit', [$course, $lecture]) }}" class="ml-4 text-white bg-green-500 hover:bg-green-700 font-bold py-2 px-4 rounded my-4">Edit Lecture</a>
                     <form action="{{ route('lectures.destroy', [$course, $lecture]) }}" method="POST">
                         @csrf
