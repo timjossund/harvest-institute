@@ -1,12 +1,12 @@
 {
     "agents": [
-        "cursor",
-        "phpstorm"
+        "codex",
+        "phpstorm",
+        "cascade"
     ],
     "editors": [
-        "cursor",
         "phpstorm",
-        "vscode"
+        "windsurf"
     ],
     "guidelines": [],
     "herd_mcp": true
